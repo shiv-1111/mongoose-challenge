@@ -39,7 +39,7 @@ app.post('/contact',(req,res) => {
 app.get('/fetch',(req,res)=>{
     Blog.find({},(err,docs)=>{
         if(err){
-            console.llog('err')
+            res.send(console.log('err'))
         }else{
             res.send(docs)
         }
