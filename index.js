@@ -31,8 +31,8 @@ app.post('/contact',(req,res) => {
         description:req.body.description
     })
     blog1.save((err,result) =>{
-        if(err){console.log('error')}
-        else{'data added'}
+        if(err){res.send('error')}
+        else{res.send('data added')}
     })
 })
 
@@ -43,6 +43,13 @@ app.get('/fetch',(req,res)=>{
         }else{
             res.send(docs)
         }
+    })
+})
+
+app.put('/update/:id',(req,res)=>{
+    Blog.updateOne({id:req.params.id},{id:"Updated"},(err,docs)=>{
+        if(err){res.send("error")}
+        else{res.send("db updated")}
     })
 })
 
